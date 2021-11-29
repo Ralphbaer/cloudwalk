@@ -26,7 +26,7 @@ run:
 test:
 	mkdir -p $(artifacts-dir) && \
 	gotestsum --format short-verbose --junitfile $(artifacts-dir)/junit-report.xml \
-	./... github.com/Ralphbaer/cloudwalk/common... \
+	./usecase/ \
 	-coverprofile=$(artifacts-dir)/coverage.out
 
 cover-html:

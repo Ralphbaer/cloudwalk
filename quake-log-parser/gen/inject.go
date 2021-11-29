@@ -37,11 +37,3 @@ func InitializeApp() *app.App {
 	)
 	return nil
 }
-
-// InitializeMeasurementUseCase setup the dependencies and returns a new *usecase.ReportUseCase
-func InitializeUseCase() *uc.QuakeLogParserUseCase {
-	wire.Build(
-		applicationSet,
-	)
-	return nil
-}

@@ -18,7 +18,7 @@ func TestCartUseCase_GroupGamesInformation(t *testing.T) {
 		Repository: repo,
 	}
 
-	got, err := uc.GroupGamesInformation(context.TODO())
+	got, err := uc.groupGamesInformation(context.TODO())
 	if err != nil {
 		t.Error(err)
 		return
@@ -41,16 +41,17 @@ func TestCartUseCase_GroupGamesInformation(t *testing.T) {
 						"5": "Dono da Bola",
 						"6": "Mal",
 						"7": "Assasinu Credi",
-						"8": "Chessus!",
+						"8": "Chessus",
 					},
 					Kills: map[string]int{
-						"Assasinu Credi": 22,
+						"Assasinu Credi": 16,
+						"Chessus":       0,
 						"Chessus!":       0,
-						"Dono da Bola":   12,
-						"Isgalamido":     16,
+						"Dono da Bola":   8,
+						"Isgalamido":     12,
 						"Mal":            -3,
 						"Oootsimo":       20,
-						"Zeh":            9,
+						"Zeh":            7,
 					},
 					DeathCause: map[string]int{
 						"MOD_FALLING":       7,

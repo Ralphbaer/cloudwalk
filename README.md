@@ -15,7 +15,7 @@ This repo contains the source code of the Quake Log Parser project.
 ### Start Local
 Inside /quake-log-parser, run:
 ```bash
-make run           # Execute the algorithm
+make run                  # Execute the algorithm
 ```
 
 # Testing

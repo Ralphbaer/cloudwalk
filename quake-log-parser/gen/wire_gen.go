@@ -29,15 +29,6 @@ func InitializeApp() *app.App {
 	return appApp
 }
 
-func InitializeUseCase() *usecase.QuakeLogParserUseCase {
-	string2 := setupFileLocation()
-	quakeLogFileRepository := repository.NewQuakeLogFileRepository(string2)
-	quakeLogParserUseCase := &usecase.QuakeLogParserUseCase{
-		Repository: quakeLogFileRepository,
-	}
-	return quakeLogParserUseCase
-}
-
 // inject.go:
 
 func setupFileLocation() string {

@@ -15,22 +15,22 @@ type QuakeLogParserUseCase struct {
 	Repository r.QuakeLogRepository
 }
 
-// Create creates a new QuakeLogParser with a list of products
+// Run just orchestrate the functions
 func (uc *QuakeLogParserUseCase) Run(ctx context.Context) error {
-	ql, err := uc.GroupGamesInformation(ctx)
+	ql, err := uc.groupGamesInformation(ctx)
 	if err != nil {
 		return err
 	}
-	ql.PrintGroupedInformationReport()
+	//ql.PrintGroupedInformationReport()
 	ql.PrintGlobalRanking()
-	ql.PrintDeathCausesReport()
+	//ql.PrintDeathCausesReport()
 
 	return nil
 }
 
 const WORLD = 1022
 
-func (uc *QuakeLogParserUseCase) GroupGamesInformation(ctx context.Context) (*QuakeLog, error) {
+func (uc *QuakeLogParserUseCase) groupGamesInformation(ctx context.Context) (*QuakeLog, error) {
 	f, err := uc.Repository.GetFile(ctx)
 	if err != nil {
 		return nil, err
@@ -67,7 +67,7 @@ func (uc *QuakeLogParserUseCase) GroupGamesInformation(ctx context.Context) (*Qu
 				return nil, err
 			}
 
-			if i == WORLD {
+			if i == WORLD || killer == killed {
 				ql.Games[ql.GameNum-1].pullKill(ql.Games[ql.GameNum-1].Players[killed])
 				continue
 			}
