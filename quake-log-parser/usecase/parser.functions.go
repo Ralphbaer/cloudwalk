@@ -8,6 +8,10 @@ import (
 )
 
 func (g *Game) pushPlayer(playerId, playerNickname string) {
+	if g.Players[playerId] != "" {
+		return
+	}
+
 	if g.Players == nil {
 		g.Players = make(map[string]string)
 	}

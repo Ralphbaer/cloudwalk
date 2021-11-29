@@ -21,9 +21,9 @@ func (uc *QuakeLogParserUseCase) Run(ctx context.Context) error {
 	if err != nil {
 		return err
 	}
-	//ql.PrintGroupedInformationReport()
+	ql.PrintGroupedInformationReport()
 	ql.PrintGlobalRanking()
-	//ql.PrintDeathCausesReport()
+	ql.PrintDeathCausesReport()
 
 	return nil
 }
