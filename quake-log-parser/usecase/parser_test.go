@@ -45,8 +45,6 @@ func TestCartUseCase_GroupGamesInformation(t *testing.T) {
 					},
 					Kills: map[string]int{
 						"Assasinu Credi": 16,
-						"Chessus":       0,
-						"Chessus!":       0,
 						"Dono da Bola":   8,
 						"Isgalamido":     12,
 						"Mal":            -3,
