@@ -1,0 +1,36 @@
+{
+    "version": "2.0.0",
+    "inputs": [
+        {
+             "id": "json",
+             "type": "command",
+             "command": "filePicker.pick",
+             "args": {
+                 "masks": ".events/*.json",
+                 "display": {
+                      "type": "fileName",
+                      "json": "name"
+                 },
+                 "output": "fileRelativePath"
+             }
+        }
+    ],
+    "tasks": [
+        {
+             "label": "build-debug",
+             "type": "shell",
+             "command": "go build -v -gcflags='all=-N -l' ${file}"
+        },
+        {
+             "label": "event",
+             "type": "shell",
+             "command": "awslambdarpc -e ${input:json}",
+             "problemMatcher": []
+        },
+        {
+            "label": "echo",
+            "type": "shell",
+            "command": "echo ${workspaceFolder}"
+        }
+    ]
+}
